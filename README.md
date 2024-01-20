@@ -1,9 +1,9 @@
 dtbo compile
 
-```cpp -nostdinc -I /usr/src/linux-headers-$(uname -r)/include -undef -x assembler-with-cpp  tc358743.dts > tc358743.dts.preprocessed```
-
-```dtc -@ -i /usr/src/linux-headers-$(uname -r)/include -H epapr -I dts -O dtb -o tc358743.dtbo -Wno-unit_address_vs_reg tc358743.dts.preprocessed```
-
+```
+cpp -nostdinc -I /usr/src/linux-headers-$(uname -r)/include -undef -x assembler-with-cpp  tc358743.dts > tc358743.dts.preprocessed
+dtc -@ -i /usr/src/linux-headers-$(uname -r)/include -H epapr -I dts -O dtb -o tc358743.dtbo -Wno-unit_address_vs_reg tc358743.dts.preprocessed
+```
 
 setting 
 
@@ -186,7 +186,7 @@ v4l2-ctl -d /dev/v4l-subdev2 --set-dv-bt-timings query
 ```
 
 test
-v4l2-ctl --device /dev/video0 --set-fmt-video=width=1920,height=1080,pixelformat=RGB3, --stream-mmap --stream-to=frame.raw --stream-count=1 --verbose 
+`v4l2-ctl --device /dev/video0 --set-fmt-video=width=1920,height=1080,pixelformat=RGB3, --stream-mmap --stream-to=frame.raw --stream-count=1 --verbose`
 
 upload frame.raw to `https://rawpixels.net/`
 
